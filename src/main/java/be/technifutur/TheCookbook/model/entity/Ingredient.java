@@ -11,4 +11,10 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ingredient_id", nullable = false)
     private Long id;
+    private String name;
+    private int quantity;
+    private String uniteMesure;
+
+    //alimentID
+    //recipeID
 }
