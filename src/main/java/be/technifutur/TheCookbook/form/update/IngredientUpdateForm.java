@@ -1,11 +1,15 @@
-package be.technifutur.TheCookbook.form;
+package be.technifutur.TheCookbook.form.update;
 
 import be.technifutur.TheCookbook.model.entity.Ingredient;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
-public class IngredientForm {
+@Getter
+@Setter
+public class IngredientUpdateForm {
     @NotNull
     private String name;
     @NotNull

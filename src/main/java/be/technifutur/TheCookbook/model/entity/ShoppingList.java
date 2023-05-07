@@ -14,6 +14,8 @@ public class ShoppingList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shoppinglist_id", nullable = false)
     private Long id;
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
     @OneToOne

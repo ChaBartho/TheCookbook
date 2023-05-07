@@ -1,4 +1,64 @@
 package be.technifutur.TheCookbook.service.impl;
 
-public class RecipeServiceImpl {
+import be.technifutur.TheCookbook.form.RecipeForm;
+import be.technifutur.TheCookbook.form.update.RecipeUpdateForm;
+import be.technifutur.TheCookbook.mapper.RecipeMapper;
+import be.technifutur.TheCookbook.model.dto.RecipeDTO;
+import be.technifutur.TheCookbook.model.entity.Recipe;
+import be.technifutur.TheCookbook.repository.RecipeRepository;
+import be.technifutur.TheCookbook.service.RecipeService;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class RecipeServiceImpl implements RecipeService {
+    private RecipeRepository recipeRepository;
+    private RecipeMapper recipeMapper;
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeMapper recipeMapper) {
+        this.recipeRepository = recipeRepository;
+        this.recipeMapper = recipeMapper;
+    }
+
+    @Override
+    public void createRecipe(RecipeForm form) {
+        Recipe entity = form.toEntity();
+        recipeRepository.save(entity);
+    }
+
+    @Override
+    public RecipeDTO getRecipe(Long id) {
+        return recipeRepository.findById(id)
+                .map(recipeMapper::toDto)
+                .orElseThrow();
+    }
+
+    @Override
+    public List<RecipeDTO> getAllRecipes() {
+        return recipeRepository.findAll()
+                .stream()
+                .map(recipeMapper::toDto)
+                .toList();
+    }
+
+    @Override
+    public void update(Long id, RecipeUpdateForm form) {
+        Recipe recipe = recipeRepository.findById(id)
+                .orElseThrow();
+        recipe.setName(form.getName());
+        recipe.setInstruction(form.getInstruction());
+        //recipe.setIngredientList(form.toEntity().getIngredientList());
+
+        recipeRepository.save(recipe);
+    }
+
+    @Override
+    public void deleteRecipe(Long id) {
+        recipeRepository.delete(recipeRepository.findById(id).orElseThrow());
+    }
+
+    @Override
+    public void clearRecipes() {
+        recipeRepository.deleteAll();
+    }
 }

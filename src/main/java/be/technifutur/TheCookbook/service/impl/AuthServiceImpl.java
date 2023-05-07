@@ -19,7 +19,6 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder encoder;
     private final AuthenticationManager authManager;
     private final JwtProvider jwtProvider;
-
     public AuthServiceImpl(
             UserRepository userRepository,
             PasswordEncoder encoder,
@@ -31,14 +30,12 @@ public class AuthServiceImpl implements AuthService {
         this.authManager = authManager;
         this.jwtProvider = jwtProvider;
     }
-
     @Override
     public void register(SigninForm form) {
         User user = form.toEntity();
         user.setPassword( encoder.encode(user.getPassword()) );
         userRepository.save( user );
     }
-
     @Override
     public JwtHolderDTO login(LoginForm form) {
         Authentication auth = new UsernamePasswordAuthenticationToken(
@@ -46,9 +43,7 @@ public class AuthServiceImpl implements AuthService {
                 form.getPassword()
         );
         auth = authManager.authenticate( auth );
-
         String token = jwtProvider.createToken( auth );
-
         return new JwtHolderDTO( token );
     }
 }

@@ -10,4 +10,6 @@ public interface AuthService {
 
     JwtHolderDTO login(LoginForm form );
 
+    interface AlimentService {
+    }
 }
