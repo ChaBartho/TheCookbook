@@ -1,4 +1,5 @@
 package be.technifutur.TheCookbook.config;
+
 import be.technifutur.TheCookbook.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

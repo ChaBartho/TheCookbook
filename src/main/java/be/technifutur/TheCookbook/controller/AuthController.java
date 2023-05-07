@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
-
     private final AuthService authService;
-
     public AuthController( AuthService authService) {
         this.authService = authService;
     }
@@ -26,5 +24,4 @@ public class AuthController {
     public JwtHolderDTO login(@RequestBody @Valid LoginForm form){
         return authService.login( form );
     }
-
 }

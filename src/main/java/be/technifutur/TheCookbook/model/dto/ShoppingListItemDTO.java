@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ShoppingListDTO {
+public class ShoppingListItemDTO {
     private Long id;
-    private String quantity;
 }

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-
     private final UserRepository userRepository;
     private final PasswordEncoder encoder;
     private final AuthenticationManager authManager;
@@ -35,27 +34,21 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void register(SigninForm form) {
-
         User user = form.toEntity();
         user.setPassword( encoder.encode(user.getPassword()) );
-
         userRepository.save( user );
-
     }
 
     @Override
     public JwtHolderDTO login(LoginForm form) {
-
         Authentication auth = new UsernamePasswordAuthenticationToken(
                 form.getUsername(),
                 form.getPassword()
         );
-
         auth = authManager.authenticate( auth );
 
         String token = jwtProvider.createToken( auth );
 
         return new JwtHolderDTO( token );
-
     }
 }

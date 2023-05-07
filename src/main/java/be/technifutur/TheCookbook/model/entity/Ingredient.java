@@ -11,10 +11,16 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ingredient_id", nullable = false)
     private Long id;
-    private String name;
+    @Column(name ="name", nullable = false)
+    private  String name;
+    @Column(name = "quantity", nullable = false)
     private int quantity;
+    @Column(name = "uniteMesure", nullable = false)
     private String uniteMesure;
-
-    //alimentID
-    //recipeID
+    @ManyToOne
+    @JoinColumn(name = "recipe_id", nullable = false)
+    private Recipe recipe;
+    @OneToOne
+    @JoinColumn(name = "aliment_id", nullable = false)
+    private Aliment aliment;
 }
