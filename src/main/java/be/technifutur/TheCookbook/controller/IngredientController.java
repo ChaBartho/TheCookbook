@@ -39,12 +39,13 @@ public class IngredientController {
     }
 
 
+
 // A VERIFIER :
     @PatchMapping(path = "/{id:[0-9]+}/update")
     public void update(@PathVariable Long id, @RequestParam IngredientUpdateForm form) {
         ingredientService.update(id, form);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/deleteall")
     public void clear(){
         ingredientService.clearIngredients();
     }
