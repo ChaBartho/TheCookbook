@@ -18,7 +18,7 @@ public class ShoppingList {
     private int quantity;
     @Column(name = "creation_date", nullable = false)
     private LocalDateTime creationDate;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -30,6 +30,4 @@ public class ShoppingList {
 
 
 
-    //@OneToMany (mappedBy = "shoppinglist")
-    //private List<Ingredient> ingredientShoppinglist;
 }

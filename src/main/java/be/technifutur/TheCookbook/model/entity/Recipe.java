@@ -19,7 +19,17 @@ public class Recipe {
     private String instruction;
     @OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredientList;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+
+
+
+
+
+
+
+
+
 }

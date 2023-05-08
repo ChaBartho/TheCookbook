@@ -25,9 +25,9 @@ public class User implements UserDetails {
     private Long id;
     @Column(nullable = false, unique = true)
     private String username;
-    @OneToMany(mappedBy = "user_shoppingList")
+    @OneToMany(mappedBy = "user")
     private List<ShoppingList> lists;
-    @OneToMany(mappedBy = "user_recipe")
+    @OneToMany(mappedBy = "user")
     private List<Recipe> recipes;
 
 

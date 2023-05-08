@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:8080/cookbook
+    url: jdbc:postgresql://localhost:6969/cookbook
     username: postgres
     password: -dEba9-5Gm-
     driver-class-name: org.postgresql.Driver

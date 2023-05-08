@@ -87,20 +87,48 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests( (authorize) -> {
             authorize
+
+                    //AUTH:
                     .requestMatchers(HttpMethod.POST, "/auth/*").anonymous()
-                    // via lambda RequestMatchers
-                    .requestMatchers(HttpMethod.POST, "/photos/*").anonymous()
-                    .requestMatchers(HttpMethod.POST, "/post/*").anonymous()
-                    .requestMatchers( request -> request.getRequestURI().length() > 50 ).hasRole("ADMIN")
-                    // via mapping d'URI
-                    .requestMatchers("/plane/all").anonymous()
-                    .requestMatchers("/plane/add").authenticated()
-                    .requestMatchers("/plane/{id:[0-9]+}/?pdate").hasRole("ADMIN")//.hasAuthority("ROLE_ADMIN")
-                    // via HttpMethod
-                    .requestMatchers( HttpMethod.POST ).hasRole("ADMIN")
+
+                    //RECIPE
+                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
+                    .requestMatchers(HttpMethod.POST,"/recipe/add").anonymous()
+                    //getOne(id):
+                    .requestMatchers(HttpMethod.GET, "/recipe/{id:[0-9]+}").anonymous()
+                    //getAll:
+                    .requestMatchers(HttpMethod.GET, "/recipe/all").anonymous()
+                    //delete(id):
+                    .requestMatchers(HttpMethod.DELETE, "/recipe/delete/{id:[0-9]+}").anonymous()
+                    //update(id):
+                    .requestMatchers(HttpMethod.PATCH, "/recipe/{id:[0-9]+}/update").anonymous()
+                    //deleteAll
+                    .requestMatchers(HttpMethod.DELETE, "/recipe/deleteall").anonymous()
+
+                    //SHOPPINGLIST:
+                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
+                    .requestMatchers(HttpMethod.POST,"/shoppinglist/add").anonymous()
+                    //getOne(id):
+                    .requestMatchers(HttpMethod.GET, "/shoppinglist/{id:[0-9]+}").anonymous()
+                    //getAll:
+                    .requestMatchers(HttpMethod.GET, "/shoppinglist/all").anonymous()
+                    //delete(id):
+                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/delete/{id:[0-9]+}").anonymous()
+                    //update(id):
+                    .requestMatchers(HttpMethod.PATCH, "/shoppinglist/{id:[0-9]+}/update").anonymous()
+                    //deleteAll
+                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/deleteall").anonymous()
+
+                    //INGREDIENT:
+                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
+                    .requestMatchers(HttpMethod.POST,"/ingredient/add").anonymous()
+                    //getOne(id):
+                    .requestMatchers(HttpMethod.GET, "/ingredient/{id:[0-9]+}").anonymous()
+                    //getAll:
+                    .requestMatchers(HttpMethod.GET, "/ingredient/all").anonymous()
+
                     .anyRequest().permitAll();
         });
-
         return http.build();
     }
 

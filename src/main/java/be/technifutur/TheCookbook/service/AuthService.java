@@ -9,7 +9,4 @@ public interface AuthService {
     void register(SigninForm form);
 
     JwtHolderDTO login(LoginForm form );
-
-    interface AlimentService {
-    }
 }
