@@ -126,6 +126,8 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/ingredient/{id:[0-9]+}").anonymous()
                     //getAll:
                     .requestMatchers(HttpMethod.GET, "/ingredient/all").anonymous()
+                    //Delete(id):
+                    .requestMatchers(HttpMethod.DELETE,"/ingredient/delete/{id:[0-9]+}").anonymous()
 
                     .anyRequest().permitAll();
         });

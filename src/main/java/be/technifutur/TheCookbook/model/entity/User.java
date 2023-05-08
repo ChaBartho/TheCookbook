@@ -23,23 +23,18 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     @OneToMany(mappedBy = "user")
     private List<ShoppingList> lists;
     @OneToMany(mappedBy = "user")
     private List<Recipe> recipes;
-
-
-
-
-    //jwt
     @NotNull
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(name = "enabled", nullable = false)
     private boolean enabled = true;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> roles = new LinkedHashSet<>();

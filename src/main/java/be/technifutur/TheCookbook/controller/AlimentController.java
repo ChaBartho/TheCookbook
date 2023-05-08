@@ -31,5 +31,9 @@ public class AlimentController {
     public List<AlimentDTO> getAll(){
         return alimentService.getAllAliments();
     }
+    @DeleteMapping("/delete/{id:[0-9]+}")
+    public void delete(@PathVariable Long id){
+        alimentService.deleteAliment(id);
+    }
 
 }

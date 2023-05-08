@@ -39,4 +39,9 @@ public class AlimentServiceImpl implements AlimentService {
                 .map(alimentMapper::toDto)
                 .toList();
     }
+
+    @Override
+    public void deleteAliment(Long id) {
+        alimentRepository.delete(alimentRepository.findById(id).orElseThrow());
+    }
 }
