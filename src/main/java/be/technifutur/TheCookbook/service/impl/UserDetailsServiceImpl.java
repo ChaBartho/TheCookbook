@@ -17,4 +17,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userRepository.findByUsername(username)
                 .orElseThrow( () -> new UsernameNotFoundException("Bad Username or Password") );
     }
+
 }

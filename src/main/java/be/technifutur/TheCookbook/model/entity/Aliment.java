@@ -11,6 +11,6 @@ public class Aliment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "aliment_id", nullable = false)
     private Long id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 }

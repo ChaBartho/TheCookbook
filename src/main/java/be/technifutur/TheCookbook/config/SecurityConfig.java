@@ -92,42 +92,42 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/auth/*").anonymous()
 
                     //RECIPE
-                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
-                    .requestMatchers(HttpMethod.POST,"/recipe/add").anonymous()
+                    //Create:
+                    .requestMatchers(HttpMethod.POST,"/recipe/add").authenticated()
                     //getOne(id):
-                    .requestMatchers(HttpMethod.GET, "/recipe/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/recipe/{id:[0-9]+}").authenticated()
                     //getAll:
-                    .requestMatchers(HttpMethod.GET, "/recipe/all").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/recipe/all").authenticated()
                     //delete(id):
-                    .requestMatchers(HttpMethod.DELETE, "/recipe/delete/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.DELETE, "/recipe/delete/{id:[0-9]+}").authenticated()
                     //update(id):
-                    .requestMatchers(HttpMethod.PATCH, "/recipe/{id:[0-9]+}/update").anonymous()
+                    .requestMatchers(HttpMethod.PATCH, "/recipe/{id:[0-9]+}/update").authenticated()
                     //deleteAll
-                    .requestMatchers(HttpMethod.DELETE, "/recipe/deleteall").anonymous()
+                    .requestMatchers(HttpMethod.DELETE, "/recipe/deleteall").authenticated()
 
                     //SHOPPINGLIST:
-                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
-                    .requestMatchers(HttpMethod.POST,"/shoppinglist/add").anonymous()
+                    //Create:
+                    .requestMatchers(HttpMethod.POST,"/shoppinglist/add").authenticated()
                     //getOne(id):
-                    .requestMatchers(HttpMethod.GET, "/shoppinglist/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/shoppinglist/{id:[0-9]+}").authenticated()
                     //getAll:
-                    .requestMatchers(HttpMethod.GET, "/shoppinglist/all").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/shoppinglist/all").authenticated()
                     //delete(id):
-                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/delete/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/delete/{id:[0-9]+}").authenticated()
                     //update(id):
-                    .requestMatchers(HttpMethod.PATCH, "/shoppinglist/{id:[0-9]+}/update").anonymous()
+                    .requestMatchers(HttpMethod.PATCH, "/shoppinglist/{id:[0-9]+}/update").authenticated()
                     //deleteAll
-                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/deleteall").anonymous()
+                    .requestMatchers(HttpMethod.DELETE, "/shoppinglist/deleteall").authenticated()
 
                     //INGREDIENT:
-                    //Create: -> PAS OUBLIER DE PASSER EN AUTHENTICATED
-                    .requestMatchers(HttpMethod.POST,"/ingredient/add").anonymous()
+                    //Create:
+                    .requestMatchers(HttpMethod.POST,"/ingredient/add").authenticated()
                     //getOne(id):
-                    .requestMatchers(HttpMethod.GET, "/ingredient/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/ingredient/{id:[0-9]+}").authenticated()
                     //getAll:
-                    .requestMatchers(HttpMethod.GET, "/ingredient/all").anonymous()
+                    .requestMatchers(HttpMethod.GET, "/ingredient/all").authenticated()
                     //Delete(id):
-                    .requestMatchers(HttpMethod.DELETE,"/ingredient/delete/{id:[0-9]+}").anonymous()
+                    .requestMatchers(HttpMethod.DELETE,"/ingredient/delete/{id:[0-9]+}").authenticated()
 
                     .anyRequest().permitAll();
         });

@@ -7,6 +7,8 @@ import be.technifutur.TheCookbook.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -15,12 +17,12 @@ public class AuthController {
         this.authService = authService;
     }
     @CrossOrigin
-    @PostMapping("/register")
+    @PostMapping("/signup")
     public void register(@RequestBody @Valid SigninForm form) throws Exception{
         authService.register( form );
     }
     @CrossOrigin
-    @PostMapping("/sign_in")
+    @PostMapping("/login")
     public JwtHolderDTO login(@RequestBody @Valid LoginForm form){
         return authService.login( form );
     }
