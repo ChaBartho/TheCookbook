@@ -34,7 +34,7 @@ public class RecipeController {
     public List<RecipeDTO> getAll(){
         return recipeService.getAllRecipes();
     }
-    @DeleteMapping("/delete/{id:[0-9]+}")
+    @DeleteMapping("/{id:[0-9]+}/delete")
     public void delete(@PathVariable Long id){
         recipeService.deleteRecipe(id);
     }

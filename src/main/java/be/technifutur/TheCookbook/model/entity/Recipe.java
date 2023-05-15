@@ -20,7 +20,7 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe")
     private List<Ingredient> ingredientList;
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
 
