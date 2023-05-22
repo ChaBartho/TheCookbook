@@ -6,8 +6,7 @@ import lombok.Data;
 
 @Data
 public class IngredientForm {
-    @NotNull
-    private String name;
+
     @NotNull
     private int quantity;
     @NotNull
@@ -15,7 +14,6 @@ public class IngredientForm {
 
     public Ingredient toEntity(){
         Ingredient entity = new Ingredient();
-        entity.setName(name);
         entity.setQuantity(quantity);
         entity.setUniteMesure(uniteMesure);
         return entity;

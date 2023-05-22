@@ -28,165 +28,120 @@ public class DataInit implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-//NEW USER
-//        User user = new User();
-//        user.setUsername("Pierre");
-//        user.setEmail("pierre@gmail.com");
-//        user.setPassword("pass");
-//        userRepository.save(user);
-//
-//        User user1 = new User();
-//        user1.setUsername("Paul");
-//        user1.setEmail("paul@gmail.com");
-//        user1.setPassword("pass");
-//        userRepository.save(user1);
-//
-//        User user2 = new User();
-//        user2.setUsername("Jacques");
-//        user2.setEmail("jacques@gmail.com");
-//        user2.setPassword("pass");
-//        userRepository.save(user2);
+
+//NEW RECIPE
+        Recipe cookies = new Recipe();
+        cookies.setId(1L);
+        cookies.setName("Cookies");
+        cookies.setInstruction("Mélange la pâte avec les pépites de chocolat");
+        cookies.setTempsCuisson("15min à 180°C");
+        recipeRepository.save(cookies);
+
+        Recipe crepe = new Recipe();
+        crepe.setId(2L);
+        crepe.setName("Crepes");
+        crepe.setInstruction("Le secret c'est une poële bien chaude");
+        crepe.setTempsCuisson("1000°C");
+        recipeRepository.save(crepe);
 
 //NEW ALIMENT
-        Aliment aliment = new Aliment();
-        aliment.setName("Oeuf");
-        alimentRepository.save(aliment);
+        Aliment oeuf = new Aliment();
+        oeuf.setId(1L);
+        oeuf.setName("Oeuf");
+        alimentRepository.save(oeuf);
 
-        Aliment aliment1 = new Aliment();
-        aliment1.setName("Lait");
-        alimentRepository.save(aliment1);
+        Aliment farine = new Aliment();
+        farine.setId(2L);
+        farine.setName("Farine");
+        alimentRepository.save(farine);
 
-        Aliment aliment2 = new Aliment();
-        aliment2.setName("Beurre");
-        alimentRepository.save(aliment2);
+        Aliment cassonnade = new Aliment();
+        cassonnade.setId(3L);
+        cassonnade.setName("Cassonnade");
+        alimentRepository.save(cassonnade);
 
-        Aliment aliment3 = new Aliment();
-        aliment3.setName("Huile de coco");
-        alimentRepository.save(aliment3);
+        Aliment huileCoco = new Aliment();
+        oeuf.setId(4L);
+        huileCoco.setName("Huile de coco");
+        alimentRepository.save(huileCoco);
 
-        Aliment aliment4 = new Aliment();
-        aliment4.setName("Fromage frais");
-        alimentRepository.save(aliment4);
+        Aliment pepiteChocolat = new Aliment();
+        pepiteChocolat.setId(5L);
+        pepiteChocolat.setName("Pépites de chocolat");
+        alimentRepository.save(pepiteChocolat);
 
-        Aliment aliment5 = new Aliment();
-        aliment5.setName("Crème fraîche");
-        alimentRepository.save(aliment5);
+        Aliment lait = new Aliment();
+        lait.setId(6L);
+        lait.setName("Lait");
+        alimentRepository.save(lait);
 
-        Aliment aliment6 = new Aliment();
-        aliment6.setName("Farine");
-        alimentRepository.save(aliment6);
+//NEW INGREDIENT
+        Ingredient ingredientCookies1 = new Ingredient();
+        ingredientCookies1.setId(1L);
+        ingredientCookies1.setAliment(oeuf);
+        ingredientCookies1.setRecipe(cookies);
+        ingredientCookies1.setQuantity(1);
+        ingredientCookies1.setUniteMesure("pièce");
+        ingredientRepository.save(ingredientCookies1);
 
-        Aliment aliment7 = new Aliment();
-        aliment7.setName("Amande en poudre");
-        alimentRepository.save(aliment7);
+        Ingredient ingredientCookies2 = new Ingredient();
+        ingredientCookies2.setId(2L);
+        ingredientCookies2.setAliment(cassonnade);
+        ingredientCookies2.setRecipe(cookies);
+        ingredientCookies2.setQuantity(100);
+        ingredientCookies2.setUniteMesure("gr");
+        ingredientRepository.save(ingredientCookies2);
 
-        Aliment aliment8 = new Aliment();
-        aliment8.setName("Flocon d'avoine");
-        alimentRepository.save(aliment8);
+        Ingredient ingredientCookies3 = new Ingredient();
+        ingredientCookies3.setId(3L);
+        ingredientCookies3.setAliment(pepiteChocolat);
+        ingredientCookies3.setRecipe(cookies);
+        ingredientCookies3.setQuantity(100);
+        ingredientCookies3.setUniteMesure("gr");
+        ingredientRepository.save(ingredientCookies3);
 
-        Aliment aliment9 = new Aliment();
-        aliment9.setName("Fécule de maïs");
-        alimentRepository.save(aliment9);
+        Ingredient ingredientCrepe1 = new Ingredient();
+        ingredientCrepe1.setId(4L);
+        ingredientCrepe1.setAliment(oeuf);
+        ingredientCrepe1.setRecipe(crepe);
+        ingredientCrepe1.setQuantity(1);
+        ingredientCrepe1.setUniteMesure("pièce");
+        ingredientRepository.save(ingredientCrepe1);
 
-        Aliment aliment10 = new Aliment();
-        aliment10.setName("Levure");
-        alimentRepository.save(aliment10);
+        Ingredient ingredientCrepe2 = new Ingredient();
+        ingredientCrepe2.setId(5L);
+        ingredientCrepe2.setAliment(lait);
+        ingredientCrepe2.setRecipe(crepe);
+        ingredientCrepe2.setQuantity(500);
+        ingredientCrepe2.setUniteMesure("ml");
+        ingredientRepository.save(ingredientCrepe2);
 
-        Aliment aliment11 = new Aliment();
-        aliment11.setName("Sel");
-        alimentRepository.save(aliment11);
+        Ingredient ingredientCrepe3 = new Ingredient();
+        ingredientCrepe3.setId(6L);
+        ingredientCrepe3.setAliment(farine);
+        ingredientCrepe3.setRecipe(crepe);
+        ingredientCrepe3.setQuantity(150);
+        ingredientCrepe3.setUniteMesure("gr");
+        ingredientRepository.save(ingredientCrepe3);
 
-        Aliment aliment12 = new Aliment();
-        aliment12.setName("Sucre");
-        alimentRepository.save(aliment12);
 
-        Aliment aliment13 = new Aliment();
-        aliment13.setName("Sucre glace");
-        alimentRepository.save(aliment13);
 
-        Aliment aliment14 = new Aliment();
-        aliment14.setName("Cassonnade");
-        alimentRepository.save(aliment14);
 
-        Aliment aliment15 = new Aliment();
-        aliment15.setName("Sucre roux");
-        alimentRepository.save(aliment15);
 
-        Aliment aliment16 = new Aliment();
-        aliment16.setName("Sucre vanillé");
-        alimentRepository.save(aliment16);
+////NEW LIST INGREDIENTS
+//        List<Ingredient> listCookies = new ArrayList<>();
+//        listCookies.add(ingredientCookies1);
+//        listCookies.add(ingredientCookies2);
+//        listCookies.add(ingredientCookies3);
+//
+//        List<Ingredient> listCrepe = new ArrayList<>();
+//        listCrepe.add(ingredientCrepe1);
+//        listCrepe.add(ingredientCrepe2);
+//        listCrepe.add(ingredientCrepe3);
 
-        Aliment aliment17 = new Aliment();
-        aliment17.setName("Fruits secs");
-        alimentRepository.save(aliment17);
 
-        Aliment aliment18 = new Aliment();
-        aliment18.setName("Chocolat (pépites)");
-        alimentRepository.save(aliment18);
 
-        Aliment aliment19 = new Aliment();
-        aliment19.setName("Chocolat (fondu)");
-        alimentRepository.save(aliment19);
 
-        Aliment aliment20 = new Aliment();
-        aliment20.setName("feuille de gélatine");
-        alimentRepository.save(aliment20);
-
-        Aliment aliment21 = new Aliment();
-        aliment21.setName("Agar-agar");
-        alimentRepository.save(aliment21);
-
-        Aliment aliment22 = new Aliment();
-        aliment22.setName("Noix concassées");
-        alimentRepository.save(aliment22);
-
-        Aliment aliment23 = new Aliment();
-        aliment23.setName("Vanille");
-        alimentRepository.save(aliment23);
-
-        Aliment aliment24 = new Aliment();
-        aliment24.setName("Banane");
-        alimentRepository.save(aliment24);
-
-        Aliment aliment25 = new Aliment();
-        aliment25.setName("Pomme");
-        alimentRepository.save(aliment25);
-
-        Aliment aliment26 = new Aliment();
-        aliment26.setName("Poire");
-        alimentRepository.save(aliment26);
-
-        Aliment aliment27 = new Aliment();
-        aliment27.setName("Eau");
-        alimentRepository.save(aliment27);
-
-        Aliment aliment28 = new Aliment();
-        aliment28.setName("Blanc d'oeuf");
-        alimentRepository.save(aliment28);
-
-        Aliment aliment29 = new Aliment();
-        aliment29.setName("Sucre perlé");
-        alimentRepository.save(aliment29);
-
-        Aliment aliment30 = new Aliment();
-        aliment30.setName("Levure boulanger");
-        alimentRepository.save(aliment30);
-
-        Aliment aliment31 = new Aliment();
-        aliment31.setName("Miel");
-        alimentRepository.save(aliment31);
-
-        Aliment aliment32 = new Aliment();
-        aliment32.setName("Jus de citron");
-        alimentRepository.save(aliment32);
-
-        Aliment aliment33 = new Aliment();
-        aliment33.setName("Citron");
-        alimentRepository.save(aliment33);
-
-        Aliment aliment34 = new Aliment();
-        aliment34.setName("Orange");
-        alimentRepository.save(aliment34);
 
     }
 }

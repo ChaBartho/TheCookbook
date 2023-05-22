@@ -11,7 +11,6 @@ public class IngredientMapper {
             return null;
         return IngredientDTO.builder()
                             .id(entity.getId())
-                            .name(entity.getName())
                             .quantity(entity.getQuantity())
                             .uniteMesure(entity.getUniteMesure())
                             .build();

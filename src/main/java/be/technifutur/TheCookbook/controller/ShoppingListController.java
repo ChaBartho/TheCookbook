@@ -26,7 +26,7 @@ public class ShoppingListController {
         try {
             return shoppingListService.getShoppinglist(id);
         } catch (Exception e){
-            throw new Exception();
+            throw new Exception(e);
         }
     }
     @GetMapping("/all")

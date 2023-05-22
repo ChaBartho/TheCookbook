@@ -12,6 +12,7 @@ public class RecipeMapper {
                             .id(entity.getId())
                             .name(entity.getName())
                             .instruction(entity.getInstruction())
+                            .tempsCuisson(entity.getTempsCuisson())
                             .build();
         }
 }

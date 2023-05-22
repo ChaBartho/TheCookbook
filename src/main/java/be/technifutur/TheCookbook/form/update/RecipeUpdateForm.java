@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter
@@ -15,11 +17,17 @@ public class RecipeUpdateForm {
     private String name;
     @NotNull
     private String instruction;
+    @NotNull
+    private String tempsCuisson;
+    @NotNull
+    private List<Ingredient> ingredientList;
 
     public Recipe toEntity(){
         Recipe recipe = new Recipe();
         recipe.setName(this.name);
         recipe.setInstruction(this.instruction);
+        recipe.setTempsCuisson(this.tempsCuisson);
+        recipe.setIngredientList(this.ingredientList);
         return recipe;
     }
 }

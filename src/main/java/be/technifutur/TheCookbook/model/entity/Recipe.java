@@ -17,7 +17,10 @@ public class Recipe {
     private String name;
     @Column(name = "instruction", nullable = false)
     private String instruction;
+    @Column(name = "tempsCuisson", nullable = false)
+    private String tempsCuisson;
     @OneToMany(mappedBy = "recipe")
+    @Column(name = "ingredient_id", nullable = false)
     private List<Ingredient> ingredientList;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)

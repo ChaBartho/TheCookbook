@@ -10,7 +10,9 @@ public interface IngredientService {
     void createIngredient(IngredientForm form);
     IngredientDTO getIngredient(Long id);
     List<IngredientDTO> getAllIngredients();
+    List<IngredientDTO> getAllIngredientsByRecipe(Long recipeId);
     void update(Long id, IngredientUpdateForm form);
     void deleteIngredient(Long id);
     void clearIngredients();
+
 }

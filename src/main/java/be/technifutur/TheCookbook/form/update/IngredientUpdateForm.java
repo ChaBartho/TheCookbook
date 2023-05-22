@@ -11,15 +11,12 @@ import lombok.Setter;
 @Setter
 public class IngredientUpdateForm {
     @NotNull
-    private String name;
-    @NotNull
     private int quantity;
     @NotNull
     private String uniteMesure;
 
     public Ingredient toEntity(){
         Ingredient entity = new Ingredient();
-        entity.setName(name);
         entity.setQuantity(quantity);
         entity.setUniteMesure(uniteMesure);
         return entity;

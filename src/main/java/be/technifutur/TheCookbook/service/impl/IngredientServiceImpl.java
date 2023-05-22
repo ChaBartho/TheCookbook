@@ -9,6 +9,7 @@ import be.technifutur.TheCookbook.repository.IngredientRepository;
 import be.technifutur.TheCookbook.service.IngredientService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -42,10 +43,28 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
+    public List<IngredientDTO> getAllIngredientsByRecipe(Long id) {
+        List<Ingredient> ingredients = ingredientRepository.findByRecipeId(id);
+        return ingredients.stream()
+                .map( entity -> IngredientDTO.builder()
+                        .id( entity.getId())
+                        .quantity( entity.getQuantity() )
+                        .uniteMesure(entity.getUniteMesure() )
+                                .build()
+                )
+                .toList();
+
+        //        return ingredientRepository.findByRecipeId(recipeId)
+//                .stream()
+//                .map(ingredientMapper::toDto)
+//                .toList();
+
+    }
+
+    @Override
     public void update(Long id, IngredientUpdateForm form) {
         Ingredient ingredient = ingredientRepository.findById(id)
                 .orElseThrow();
-        ingredient.setName(form.getName());
         ingredient.setQuantity(form.getQuantity());
         ingredient.setUniteMesure(form.getUniteMesure());
 

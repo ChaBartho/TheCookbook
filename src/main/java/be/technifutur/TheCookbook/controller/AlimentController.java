@@ -25,7 +25,7 @@ public class AlimentController {
         try {
             return alimentService.getAliment(id);
         } catch (Exception e){
-            throw new Exception();
+            throw new Exception(e);
         }
     }
     @GetMapping("/all")

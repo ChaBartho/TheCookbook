@@ -2,7 +2,9 @@ package be.technifutur.TheCookbook.controller;
 
 import be.technifutur.TheCookbook.form.IngredientForm;
 import be.technifutur.TheCookbook.form.update.IngredientUpdateForm;
+import be.technifutur.TheCookbook.model.dto.AlimentDTO;
 import be.technifutur.TheCookbook.model.dto.IngredientDTO;
+import be.technifutur.TheCookbook.service.AlimentService;
 import be.technifutur.TheCookbook.service.IngredientService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +16,11 @@ import java.util.List;
 @RequestMapping("/ingredient")
 public class IngredientController {
     private final IngredientService ingredientService;
-    public IngredientController(IngredientService ingredientService) {
+    private final AlimentService alimentService;
+    public IngredientController(IngredientService ingredientService, AlimentService alimentService) {
         this.ingredientService = ingredientService;
+        this.alimentService = alimentService;
     }
-
     @PostMapping("/add")
     public void create(@RequestBody @Valid IngredientForm form){
         ingredientService.createIngredient(form);
@@ -27,7 +30,7 @@ public class IngredientController {
         try {
             return ingredientService.getIngredient(id);
         } catch (Exception e){
-            throw new Exception();
+            throw new Exception(e);
         }
     }
     @GetMapping("/all")
@@ -38,6 +41,15 @@ public class IngredientController {
     public void delete(@PathVariable Long id){
         ingredientService.deleteIngredient(id);
     }
+
+//    @GetMapping("/{id:[0-9]+}/aliments")
+//    public List<AlimentDTO> getAlimentsByIngredient(@RequestBody @PathVariable("id") Long id) throws Exception {
+//        try {
+//            return alimentService.getAllAlimentsByIngredients(id);
+//        } catch (Exception e) {
+//            throw new Exception(e);
+//        }
+//    }
 
 
 
@@ -50,4 +62,7 @@ public class IngredientController {
     public void clear(){
         ingredientService.clearIngredients();
     }
+
 }
+
+
