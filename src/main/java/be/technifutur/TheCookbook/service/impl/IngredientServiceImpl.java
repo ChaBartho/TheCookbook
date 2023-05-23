@@ -9,7 +9,6 @@ import be.technifutur.TheCookbook.repository.IngredientRepository;
 import be.technifutur.TheCookbook.service.IngredientService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,15 +49,10 @@ public class IngredientServiceImpl implements IngredientService {
                         .id( entity.getId())
                         .quantity( entity.getQuantity() )
                         .uniteMesure(entity.getUniteMesure() )
-                                .build()
+                        .name(entity.getAliment().getName())
+                        .build()
                 )
                 .toList();
-
-        //        return ingredientRepository.findByRecipeId(recipeId)
-//                .stream()
-//                .map(ingredientMapper::toDto)
-//                .toList();
-
     }
 
     @Override

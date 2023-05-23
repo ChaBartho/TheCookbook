@@ -9,6 +9,5 @@ public interface AlimentService {
     void createAliment(AlimentForm form);
     AlimentDTO getAliment(Long id);
     List<AlimentDTO> getAllAliments();
-    List <AlimentDTO> getAllAlimentsByIngredients(Long ingredientId);
     void deleteAliment(Long id);
 }

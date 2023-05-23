@@ -42,6 +42,10 @@ public class RecipeController {
     public void delete(@PathVariable Long id){
         recipeService.deleteRecipe(id);
     }
+
+
+
+
     @GetMapping("/{id:[0-9]+}/ingredients")
     public List<IngredientDTO> getIngredientsByRecipe(@RequestBody @PathVariable("id") Long id) throws Exception {
         try {

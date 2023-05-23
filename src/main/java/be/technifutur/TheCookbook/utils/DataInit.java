@@ -80,15 +80,15 @@ public class DataInit implements InitializingBean {
         ingredientCookies1.setId(1L);
         ingredientCookies1.setAliment(oeuf);
         ingredientCookies1.setRecipe(cookies);
-        ingredientCookies1.setQuantity(1);
-        ingredientCookies1.setUniteMesure("pièce");
+        ingredientCookies1.setQuantity(100);
+        ingredientCookies1.setUniteMesure("gr");
         ingredientRepository.save(ingredientCookies1);
 
         Ingredient ingredientCookies2 = new Ingredient();
         ingredientCookies2.setId(2L);
         ingredientCookies2.setAliment(cassonnade);
         ingredientCookies2.setRecipe(cookies);
-        ingredientCookies2.setQuantity(100);
+        ingredientCookies2.setQuantity(160);
         ingredientCookies2.setUniteMesure("gr");
         ingredientRepository.save(ingredientCookies2);
 
@@ -105,7 +105,7 @@ public class DataInit implements InitializingBean {
         ingredientCrepe1.setAliment(oeuf);
         ingredientCrepe1.setRecipe(crepe);
         ingredientCrepe1.setQuantity(1);
-        ingredientCrepe1.setUniteMesure("pièce");
+        ingredientCrepe1.setUniteMesure(" ");
         ingredientRepository.save(ingredientCrepe1);
 
         Ingredient ingredientCrepe2 = new Ingredient();

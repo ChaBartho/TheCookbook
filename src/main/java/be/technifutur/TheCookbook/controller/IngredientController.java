@@ -42,14 +42,6 @@ public class IngredientController {
         ingredientService.deleteIngredient(id);
     }
 
-//    @GetMapping("/{id:[0-9]+}/aliments")
-//    public List<AlimentDTO> getAlimentsByIngredient(@RequestBody @PathVariable("id") Long id) throws Exception {
-//        try {
-//            return alimentService.getAllAlimentsByIngredients(id);
-//        } catch (Exception e) {
-//            throw new Exception(e);
-//        }
-//    }
 
 
 

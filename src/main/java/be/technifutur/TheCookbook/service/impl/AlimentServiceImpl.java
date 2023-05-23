@@ -41,23 +41,6 @@ public class AlimentServiceImpl implements AlimentService {
     }
 
     @Override
-    public List<AlimentDTO> getAllAlimentsByIngredients(Long ingredientId) {
-        return null;
-    }
-
-//    @Override
-//    public List<AlimentDTO> getAllAlimentsByIngredients(Long id) {
-//        List<Aliment> aliments = alimentRepository.findByIngredientId(id);
-//        return aliments.stream()
-//                .map( entity -> AlimentDTO.builder()
-//                    .id( entity.getId() )
-//                    .name( entity.getName() )
-//                        .build()
-//                )
-//                .toList();
-//    }
-
-    @Override
     public void deleteAliment(Long id) {
         alimentRepository.delete(alimentRepository.findById(id).orElseThrow());
     }
