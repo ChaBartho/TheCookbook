@@ -9,6 +9,7 @@ import java.util.List;
 public interface RecipeService {
     void createRecipe(RecipeForm form);
     RecipeDTO getRecipe(Long id);
+    RecipeDTO searchRecipe(String name);
     List<RecipeDTO> getAllRecipes();
     void update(Long id, RecipeUpdateForm form);
     void deleteRecipe(Long id);

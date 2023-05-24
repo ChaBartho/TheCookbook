@@ -7,7 +7,10 @@ import be.technifutur.TheCookbook.model.dto.RecipeDTO;
 import be.technifutur.TheCookbook.model.entity.Recipe;
 import be.technifutur.TheCookbook.repository.RecipeRepository;
 import be.technifutur.TheCookbook.service.RecipeService;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -31,6 +34,13 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeRepository.findById(id)
                 .map(recipeMapper::toDto)
                 .orElseThrow();
+    }
+
+    @Override
+    public RecipeDTO searchRecipe(String name) {
+        return recipeRepository.searchRecipe(name)
+                .map(recipeMapper::toDto)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override

@@ -3,11 +3,15 @@ package be.technifutur.TheCookbook.model.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.util.List;
 
 @Entity
 @Getter @Setter
+@SQLDelete(sql = "UPDATE Recipe  SET deleted = true WHERE recipe_id=?")
+@Where(clause = "deleted=false")
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +29,8 @@ public class Recipe {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
+    @Column(nullable = false)
+    private boolean deleted = Boolean.FALSE;
 
 
 

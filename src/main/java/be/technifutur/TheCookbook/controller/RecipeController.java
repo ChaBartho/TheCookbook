@@ -7,6 +7,7 @@ import be.technifutur.TheCookbook.model.dto.RecipeDTO;
 import be.technifutur.TheCookbook.service.IngredientService;
 import be.technifutur.TheCookbook.service.RecipeService;
 import jakarta.validation.Valid;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +35,12 @@ public class RecipeController {
             throw new Exception(e);
         }
     }
+
+    @GetMapping("/name/{name}")
+    public RecipeDTO getOneByName(@RequestBody @PathVariable("name") String name) throws Exception {
+        return recipeService.searchRecipe(name);
+    }
+
     @GetMapping("/all")
     public List<RecipeDTO> getAll(){
         return recipeService.getAllRecipes();
@@ -42,10 +49,6 @@ public class RecipeController {
     public void delete(@PathVariable Long id){
         recipeService.deleteRecipe(id);
     }
-
-
-
-
     @GetMapping("/{id:[0-9]+}/ingredients")
     public List<IngredientDTO> getIngredientsByRecipe(@RequestBody @PathVariable("id") Long id) throws Exception {
         try {
