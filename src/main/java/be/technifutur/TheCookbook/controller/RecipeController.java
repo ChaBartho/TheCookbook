@@ -7,7 +7,6 @@ import be.technifutur.TheCookbook.model.dto.RecipeDTO;
 import be.technifutur.TheCookbook.service.IngredientService;
 import be.technifutur.TheCookbook.service.RecipeService;
 import jakarta.validation.Valid;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,25 +21,18 @@ public class RecipeController {
         this.recipeService = recipeService;
         this.ingredientService = ingredientService;
     }
-
     @PostMapping("/add")
     public void create(@RequestBody @Valid RecipeForm form){
         recipeService.createRecipe(form);
     }
     @GetMapping("/{id:[0-9]+}")
-    public RecipeDTO getOne(@RequestBody @PathVariable("id") Long id) throws Exception {
-        try {
-            return recipeService.getRecipe(id);
-        } catch (Exception e){
-            throw new Exception(e);
-        }
+    public RecipeDTO getOne(@RequestBody @PathVariable("id") Long id) {
+        return recipeService.getRecipe(id);
     }
-
     @GetMapping("/name/{name}")
-    public RecipeDTO getOneByName(@RequestBody @PathVariable("name") String name) throws Exception {
+    public RecipeDTO getOneByName(@RequestBody @PathVariable("name") String name) {
         return recipeService.searchRecipe(name);
     }
-
     @GetMapping("/all")
     public List<RecipeDTO> getAll(){
         return recipeService.getAllRecipes();
@@ -49,13 +41,10 @@ public class RecipeController {
     public void delete(@PathVariable Long id){
         recipeService.deleteRecipe(id);
     }
+
     @GetMapping("/{id:[0-9]+}/ingredients")
-    public List<IngredientDTO> getIngredientsByRecipe(@RequestBody @PathVariable("id") Long id) throws Exception {
-        try {
-            return ingredientService.getAllIngredientsByRecipe(id);
-        } catch (Exception e){
-            throw new Exception(e);
-        }
+    public List<IngredientDTO> getIngredientsByRecipe(@RequestBody @PathVariable("id") Long id) {
+        return ingredientService.getAllIngredientsByRecipe(id);
     }
 
 

@@ -41,8 +41,31 @@ public class DataInit implements InitializingBean {
         crepe.setId(2L);
         crepe.setName("Crepes");
         crepe.setInstruction("Le secret c'est une poële bien chaude");
-        crepe.setTempsCuisson("1000°C");
+        crepe.setTempsCuisson("Jusqu'à ce que mort s'en suive");
         recipeRepository.save(crepe);
+
+        Recipe cake = new Recipe();
+        cake.setId(3L);
+        cake.setName("Cake");
+        cake.setInstruction("En voilà des instructions claires et précises ! Aaaah chic alors !");
+        cake.setTempsCuisson("200°C");
+        recipeRepository.save(cake);
+
+        Recipe clafoutis = new Recipe();
+        clafoutis.setId(4L);
+        clafoutis.setName("Clafoutis");
+        clafoutis.setInstruction("Qu'est-ce que c'est chouette d'être dans l'eau !");
+        clafoutis.setTempsCuisson("1000°C");
+        recipeRepository.save(clafoutis);
+
+        Recipe tiramisu = new Recipe();
+        tiramisu.setId(5L);
+        tiramisu.setName("Tiramisu");
+        tiramisu.setInstruction("Encore un qui contient assez de rhum pour réveiller un mort...");
+        tiramisu.setTempsCuisson("au frigo minimum 1h");
+        recipeRepository.save(tiramisu);
+
+
 
 //NEW ALIMENT
         Aliment oeuf = new Aliment();
@@ -100,6 +123,7 @@ public class DataInit implements InitializingBean {
         ingredientCookies3.setUniteMesure("gr");
         ingredientRepository.save(ingredientCookies3);
 
+
         Ingredient ingredientCrepe1 = new Ingredient();
         ingredientCrepe1.setId(4L);
         ingredientCrepe1.setAliment(oeuf);
@@ -125,19 +149,54 @@ public class DataInit implements InitializingBean {
         ingredientRepository.save(ingredientCrepe3);
 
 
+        Ingredient ingredientCake1 = new Ingredient();
+        ingredientCake1.setId(4L);
+        ingredientCake1.setAliment(oeuf);
+        ingredientCake1.setRecipe(cake);
+        ingredientCake1.setQuantity(1);
+        ingredientCake1.setUniteMesure(" ");
+        ingredientRepository.save(ingredientCake1);
+
+        Ingredient ingredientCake2 = new Ingredient();
+        ingredientCake2.setId(5L);
+        ingredientCake2.setAliment(lait);
+        ingredientCake2.setRecipe(cake);
+        ingredientCake2.setQuantity(500);
+        ingredientCake2.setUniteMesure("ml");
+        ingredientRepository.save(ingredientCake2);
+
+        Ingredient ingredientCake3 = new Ingredient();
+        ingredientCake3.setId(6L);
+        ingredientCake3.setAliment(farine);
+        ingredientCake3.setRecipe(cake);
+        ingredientCake3.setQuantity(150);
+        ingredientCake3.setUniteMesure("gr");
+        ingredientRepository.save(ingredientCake3);
 
 
+        Ingredient ingredientClafoutis1 = new Ingredient();
+        ingredientClafoutis1.setId(4L);
+        ingredientClafoutis1.setAliment(oeuf);
+        ingredientClafoutis1.setRecipe(clafoutis);
+        ingredientClafoutis1.setQuantity(1);
+        ingredientClafoutis1.setUniteMesure(" ");
+        ingredientRepository.save(ingredientClafoutis1);
 
-////NEW LIST INGREDIENTS
-//        List<Ingredient> listCookies = new ArrayList<>();
-//        listCookies.add(ingredientCookies1);
-//        listCookies.add(ingredientCookies2);
-//        listCookies.add(ingredientCookies3);
-//
-//        List<Ingredient> listCrepe = new ArrayList<>();
-//        listCrepe.add(ingredientCrepe1);
-//        listCrepe.add(ingredientCrepe2);
-//        listCrepe.add(ingredientCrepe3);
+        Ingredient ingredientClafoutis2 = new Ingredient();
+        ingredientClafoutis2.setId(5L);
+        ingredientClafoutis2.setAliment(lait);
+        ingredientClafoutis2.setRecipe(clafoutis);
+        ingredientClafoutis2.setQuantity(500);
+        ingredientClafoutis2.setUniteMesure("ml");
+        ingredientRepository.save(ingredientClafoutis2);
+
+        Ingredient ingredientClafoutis3 = new Ingredient();
+        ingredientClafoutis3.setId(6L);
+        ingredientClafoutis3.setAliment(farine);
+        ingredientClafoutis3.setRecipe(clafoutis);
+        ingredientClafoutis3.setQuantity(150);
+        ingredientClafoutis3.setUniteMesure("gr");
+        ingredientRepository.save(ingredientClafoutis3);
 
 
 

@@ -55,6 +55,7 @@ public class IngredientServiceImpl implements IngredientService {
                 .toList();
     }
 
+
     @Override
     public void update(Long id, IngredientUpdateForm form) {
         Ingredient ingredient = ingredientRepository.findById(id)
