@@ -103,8 +103,8 @@ public class DataInit implements InitializingBean {
         ingredientCookies1.setId(1L);
         ingredientCookies1.setAliment(oeuf);
         ingredientCookies1.setRecipe(cookies);
-        ingredientCookies1.setQuantity(100);
-        ingredientCookies1.setUniteMesure("gr");
+        ingredientCookies1.setQuantity(1);
+        ingredientCookies1.setUniteMesure(" ");
         ingredientRepository.save(ingredientCookies1);
 
         Ingredient ingredientCookies2 = new Ingredient();
@@ -150,7 +150,7 @@ public class DataInit implements InitializingBean {
 
 
         Ingredient ingredientCake1 = new Ingredient();
-        ingredientCake1.setId(4L);
+        ingredientCake1.setId(7L);
         ingredientCake1.setAliment(oeuf);
         ingredientCake1.setRecipe(cake);
         ingredientCake1.setQuantity(1);
@@ -158,24 +158,24 @@ public class DataInit implements InitializingBean {
         ingredientRepository.save(ingredientCake1);
 
         Ingredient ingredientCake2 = new Ingredient();
-        ingredientCake2.setId(5L);
-        ingredientCake2.setAliment(lait);
+        ingredientCake2.setId(8L);
+        ingredientCake2.setAliment(farine);
         ingredientCake2.setRecipe(cake);
-        ingredientCake2.setQuantity(500);
-        ingredientCake2.setUniteMesure("ml");
+        ingredientCake2.setQuantity(200);
+        ingredientCake2.setUniteMesure("gr");
         ingredientRepository.save(ingredientCake2);
 
         Ingredient ingredientCake3 = new Ingredient();
-        ingredientCake3.setId(6L);
-        ingredientCake3.setAliment(farine);
+        ingredientCake3.setId(9L);
+        ingredientCake3.setAliment(cassonnade);
         ingredientCake3.setRecipe(cake);
-        ingredientCake3.setQuantity(150);
+        ingredientCake3.setQuantity(180);
         ingredientCake3.setUniteMesure("gr");
         ingredientRepository.save(ingredientCake3);
 
 
         Ingredient ingredientClafoutis1 = new Ingredient();
-        ingredientClafoutis1.setId(4L);
+        ingredientClafoutis1.setId(10L);
         ingredientClafoutis1.setAliment(oeuf);
         ingredientClafoutis1.setRecipe(clafoutis);
         ingredientClafoutis1.setQuantity(1);
@@ -183,7 +183,7 @@ public class DataInit implements InitializingBean {
         ingredientRepository.save(ingredientClafoutis1);
 
         Ingredient ingredientClafoutis2 = new Ingredient();
-        ingredientClafoutis2.setId(5L);
+        ingredientClafoutis2.setId(11L);
         ingredientClafoutis2.setAliment(lait);
         ingredientClafoutis2.setRecipe(clafoutis);
         ingredientClafoutis2.setQuantity(500);
@@ -191,12 +191,37 @@ public class DataInit implements InitializingBean {
         ingredientRepository.save(ingredientClafoutis2);
 
         Ingredient ingredientClafoutis3 = new Ingredient();
-        ingredientClafoutis3.setId(6L);
+        ingredientClafoutis3.setId(12L);
         ingredientClafoutis3.setAliment(farine);
         ingredientClafoutis3.setRecipe(clafoutis);
         ingredientClafoutis3.setQuantity(150);
         ingredientClafoutis3.setUniteMesure("gr");
         ingredientRepository.save(ingredientClafoutis3);
+
+
+        Ingredient ingredientTiramisu1 = new Ingredient();
+        ingredientTiramisu1.setId(13L);
+        ingredientTiramisu1.setAliment(oeuf);
+        ingredientTiramisu1.setRecipe(tiramisu);
+        ingredientTiramisu1.setQuantity(1);
+        ingredientTiramisu1.setUniteMesure(" ");
+        ingredientRepository.save(ingredientTiramisu1);
+
+        Ingredient ingredientTiramisu2 = new Ingredient();
+        ingredientTiramisu2.setId(14L);
+        ingredientTiramisu2.setAliment(lait);
+        ingredientTiramisu2.setRecipe(tiramisu);
+        ingredientTiramisu2.setQuantity(500);
+        ingredientTiramisu2.setUniteMesure("ml");
+        ingredientRepository.save(ingredientTiramisu2);
+
+        Ingredient ingredientTiramisu3 = new Ingredient();
+        ingredientTiramisu3.setId(15L);
+        ingredientTiramisu3.setAliment(farine);
+        ingredientTiramisu3.setRecipe(tiramisu);
+        ingredientTiramisu3.setQuantity(150);
+        ingredientTiramisu3.setUniteMesure("gr");
+        ingredientRepository.save(ingredientTiramisu3);
 
 
 
