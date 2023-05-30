@@ -1,13 +1,16 @@
 package be.technifutur.TheCookbook.service.impl;
 
+
+import be.technifutur.TheCookbook.form.IngredientForm;
 import be.technifutur.TheCookbook.form.RecipeForm;
 import be.technifutur.TheCookbook.form.update.RecipeUpdateForm;
 import be.technifutur.TheCookbook.mapper.RecipeMapper;
 import be.technifutur.TheCookbook.model.dto.RecipeDTO;
 import be.technifutur.TheCookbook.model.entity.Recipe;
+import be.technifutur.TheCookbook.repository.IngredientRepository;
 import be.technifutur.TheCookbook.repository.RecipeRepository;
+import be.technifutur.TheCookbook.service.IngredientService;
 import be.technifutur.TheCookbook.service.RecipeService;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,10 +19,14 @@ import java.util.List;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
+    private IngredientService ingredientService;
     private RecipeRepository recipeRepository;
+    private IngredientRepository ingredientRepository;
     private RecipeMapper recipeMapper;
-    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeMapper recipeMapper) {
+    public RecipeServiceImpl(IngredientService ingredientService, RecipeRepository recipeRepository, IngredientRepository ingredientRepository, RecipeMapper recipeMapper) {
+        this.ingredientService = ingredientService;
         this.recipeRepository = recipeRepository;
+        this.ingredientRepository = ingredientRepository;
         this.recipeMapper = recipeMapper;
     }
 
@@ -27,6 +34,12 @@ public class RecipeServiceImpl implements RecipeService {
     public void createRecipe(RecipeForm form) {
         Recipe entity = form.toEntity();
         recipeRepository.save(entity);
+
+        for (IngredientForm ingredient : form.getIngredients()){
+            ingredient.setAlimentId(1L);
+            ingredient.setRecipeId(entity.getId());
+            ingredientService.createIngredient(ingredient);
+        }
     }
 
     @Override

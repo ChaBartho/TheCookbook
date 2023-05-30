@@ -11,6 +11,10 @@ public class IngredientForm {
     private int quantity;
     @NotNull
     private String uniteMesure;
+    @NotNull
+    private Long recipeId;
+    @NotNull
+    private Long alimentId;
 
     public Ingredient toEntity(){
         Ingredient entity = new Ingredient();

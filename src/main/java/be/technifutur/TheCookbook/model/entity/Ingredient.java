@@ -22,4 +22,6 @@ public class Ingredient {
     @OneToOne
     @JoinColumn(name = "aliment_id", nullable = false)
     private Aliment aliment;
+    @Column(nullable = false)
+    private boolean deleted = Boolean.FALSE;
 }

@@ -33,6 +33,10 @@ public class IngredientController {
             throw new Exception(e);
         }
     }
+    @GetMapping("/name/{name}")
+    public IngredientDTO getOneByName(@RequestBody @PathVariable("name") String name){
+        return ingredientService.searchIngredient(name);
+    }
     @GetMapping("/all")
     public List<IngredientDTO> getAll(){
         return ingredientService.getAllIngredients();

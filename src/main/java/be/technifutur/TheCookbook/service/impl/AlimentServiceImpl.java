@@ -6,7 +6,9 @@ import be.technifutur.TheCookbook.model.dto.AlimentDTO;
 import be.technifutur.TheCookbook.model.entity.Aliment;
 import be.technifutur.TheCookbook.repository.AlimentRepository;
 import be.technifutur.TheCookbook.service.AlimentService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 @Service
@@ -30,6 +32,13 @@ public class AlimentServiceImpl implements AlimentService {
         return alimentRepository.findById(id)
                 .map(alimentMapper::toDto)
                 .orElseThrow();
+    }
+
+    @Override
+    public AlimentDTO searchAliment(String name) {
+        return alimentRepository.searchAliment(name)
+                .map(alimentMapper::toDto)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override

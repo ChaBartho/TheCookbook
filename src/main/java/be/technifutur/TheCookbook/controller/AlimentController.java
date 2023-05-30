@@ -22,11 +22,11 @@ public class AlimentController {
     }
     @GetMapping("/{id:[0-9]+}")
     public AlimentDTO getOne(@RequestBody @PathVariable("id")  Long id) throws Exception {
-        try {
             return alimentService.getAliment(id);
-        } catch (Exception e){
-            throw new Exception(e);
-        }
+    }
+    @GetMapping("/name/{name}")
+    public AlimentDTO getOneByName(@RequestBody @PathVariable("name") String name) {
+        return alimentService.searchAliment(name);
     }
     @GetMapping("/all")
     public List<AlimentDTO> getAll(){

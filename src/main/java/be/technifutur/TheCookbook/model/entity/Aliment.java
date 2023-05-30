@@ -13,4 +13,6 @@ public class Aliment {
     private Long id;
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+    @Column(nullable = false)
+    private boolean deleted = Boolean.FALSE;
 }

@@ -8,6 +8,7 @@ import java.util.List;
 public interface AlimentService {
     void createAliment(AlimentForm form);
     AlimentDTO getAliment(Long id);
+    AlimentDTO searchAliment(String name);
     List<AlimentDTO> getAllAliments();
     void deleteAliment(Long id);
 }
