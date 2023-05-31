@@ -36,7 +36,7 @@ public class RecipeServiceImpl implements RecipeService {
         recipeRepository.save(entity);
 
         for (IngredientForm ingredient : form.getIngredients()){
-            ingredient.setAlimentId(1L);
+            ingredient.setAlimentId(ingredient.getAlimentId());
             ingredient.setRecipeId(entity.getId());
             ingredientService.createIngredient(ingredient);
         }

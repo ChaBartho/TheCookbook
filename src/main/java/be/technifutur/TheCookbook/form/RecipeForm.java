@@ -17,7 +17,7 @@ public class RecipeForm {
     @NotNull
     private String tempsCuisson;
 
-   private List<IngredientForm> ingredients = new ArrayList<>();;
+   private List<IngredientForm> ingredients = new ArrayList<>();
 
     public Recipe toEntity(){
         Recipe recipe = new Recipe();
