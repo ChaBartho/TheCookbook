@@ -48,11 +48,9 @@ public class RecipeController {
     }
 
 
-
-
 //A VERIFIER
     @PatchMapping( "/{id:[0-9]+}/update")
-    public void update(@PathVariable Long id, @RequestParam RecipeUpdateForm form) {
+    public void update(@PathVariable Long id, @RequestBody @Valid RecipeUpdateForm form) {
         recipeService.update(id, form);
     }
     @DeleteMapping("/deleteall")

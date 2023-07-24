@@ -84,7 +84,7 @@ public class DataInit implements InitializingBean {
         alimentRepository.save(cassonnade);
 
         Aliment huileCoco = new Aliment();
-        oeuf.setId(4L);
+        huileCoco.setId(4L);
         huileCoco.setName("Huile de coco");
         alimentRepository.save(huileCoco);
 

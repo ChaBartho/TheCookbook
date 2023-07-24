@@ -70,6 +70,7 @@ public class RecipeServiceImpl implements RecipeService {
                 .orElseThrow();
         recipe.setName(form.getName());
         recipe.setInstruction(form.getInstruction());
+        recipe.setTempsCuisson(form.getTempsCuisson());
         //recipe.setIngredientList(form.toEntity().getIngredientList());
 
         recipeRepository.save(recipe);
